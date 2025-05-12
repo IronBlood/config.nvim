@@ -1,7 +1,7 @@
 local data = assert(vim.fn.stdpath("data"))
 
 require("telescope").setup({
-  default = {
+  defaults = {
     mappings = {
       i = {
         ["<C-u>"] = false,

@@ -1,5 +1,5 @@
 local dotenv_path = vim.fs.joinpath(vim.fn.stdpath("config"), ".env")
-require("utils.dotenvs").eval(dotenv_path)
+require("utils.dotenv").eval(dotenv_path)
 
 local g = vim.g
 

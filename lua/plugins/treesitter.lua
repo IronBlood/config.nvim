@@ -10,6 +10,6 @@ return {
   branch = "master",
   lazy = false,
   config = function()
-    require("config.treesiter").setup()
+    require("config.treesitter").setup()
   end,
 }
