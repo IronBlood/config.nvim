@@ -6,7 +6,6 @@ return {
       compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
     })
 
-    vim.cmd.colorscheme("catppuccin")
-    vim.cmd("Catppuccin frappe")
+    vim.cmd.colorscheme("catppuccin-frappe")
   end,
 }
