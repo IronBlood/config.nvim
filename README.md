@@ -9,8 +9,9 @@ This is my personal configurations for neovim. It may not suit you, but I wish t
 
 ## Plugins
 
+* [base16-nvim](https://github.com/RRethy/base16-nvim) - Theme
 * [blink.cmp](https://github.com/saghen/blink.cmp) - Completion
-* [Catppuccin](https://github.com/catppuccin/nvim) - Theme
+* [Catppuccin](https://github.com/catppuccin/nvim) - Theme (Default `catppuccin-frappe`)
 * [Cloak](https://github.com/laytan/cloak.nvim) - Overlay `*`'s (or any other character) over defined patterns in defined files
 * [codecompanion.nvim](https://github.com/olimorris/codecompanion.nvim) - LLM
 * [Colorizer](https://github.com/norcalli/nvim-colorizer.lua) - Color higherligher, currently only enabled for `.css` files.
@@ -28,6 +29,7 @@ This is my personal configurations for neovim. It may not suit you, but I wish t
 * [mason.nvim](https://github.com/mason-org/mason.nvim) - Portable package manager that manages LSP servers, DAP servers, linters and formatters.
 * [mason-lspconfig.nvim](https://github.com/mason-org/mason-lspconfig.nvim)
 * [mason-tool-installer.nvim](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim) - Install and upgrade 3rd party tools.
+* [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim) - Theme
 * [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 * [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) - A file explorer.
 * [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - Nvim Treesitter configurations and abstraction layer
@@ -36,6 +38,7 @@ This is my personal configurations for neovim. It may not suit you, but I wish t
 * [sqlite.lua](https://github.com/kkharji/sqlite.lua) - SQLite LuaJIT binding with a very simple api.
 * [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) - Fuzzy finder
 * [Todo Comments](https://github.com/folke/todo-comments.nvim) - to highlight and search for todo comments like `TODO`, `HACK`, `BUG`, etc.
+* [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) - Theme
 * [TreeSJ](https://github.com/Wansmer/treesj) - Splitting or joining blocks of code like arrays, hashes, statements, etc.
 * [Vim Fugitive](https://github.com/tpope/vim-fugitive) - A git wrapper
 * [Which Key](https://github.com/folke/which-key.nvim/) - Shows available keybindings.
