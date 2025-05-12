@@ -10,4 +10,11 @@ return {
     set("n", "]t", TodoComment.jump_next, { desc = "Next todo comment" })
     set("n", "[t", TodoComment.jump_prev, { desc = "Previous todo comment" })
   end,
+  opts = {
+    signs = true,
+    merge_keywords = false,
+    highlight = {
+      multiline = false,
+    },
+  },
 }
