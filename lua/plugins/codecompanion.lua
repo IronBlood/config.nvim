@@ -2,6 +2,7 @@ local get_code
 
 return {
   "olimorris/codecompanion.nvim",
+  lazy = true,
   -- setup
   opts = {
     strategies = {
