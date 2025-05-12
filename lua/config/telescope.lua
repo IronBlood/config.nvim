@@ -22,7 +22,7 @@ require("telescope").setup({
 
 local load_extension = require("telescope").load_extension
 pcall(load_extension, "fzf")
-pcall(load_extension, "smart_history")
+--pcall(load_extension, "smart_history")
 pcall(load_extension, "ui-select")
 
 local builtin = require("telescope.builtin")
