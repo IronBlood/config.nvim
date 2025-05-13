@@ -53,3 +53,15 @@ vim.o.scrolloff = 5
 
 vim.opt.guicursor = "i:block"
 vim.opt.mouse = ""
+
+-- By default, neovim uses `jcroql` for `formatoptions`. They're all related to comments,
+-- some are useful, like `j` will remove the comment leader when joining two lines of comments,
+-- `r` will insert the comment leader when pressing <ENTER> in INSERT mode. However, the `o`
+-- option, to insert a new line below (`o`) or above (`O`) is annoying to me. So I turn this
+-- feature off globally.
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.formatoptions:remove("o")
+  end,
+})
