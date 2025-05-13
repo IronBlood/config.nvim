@@ -44,15 +44,15 @@ end
 o.undofile = true
 
 -- Decrease update time
-vim.o.updatetime = 250
-vim.o.timeoutlen = 300
+o.updatetime = 250
+o.timeoutlen = 300
 
-vim.o.cursorline = true
+o.cursorline = true
 
-vim.o.scrolloff = 5
+o.scrolloff = 5
 
-vim.opt.guicursor = "i:block"
-vim.opt.mouse = ""
+o.guicursor = "i:block"
+o.mouse = ""
 
 -- By default, neovim uses `jcroql` for `formatoptions`. They're all related to comments,
 -- some are useful, like `j` will remove the comment leader when joining two lines of comments,
