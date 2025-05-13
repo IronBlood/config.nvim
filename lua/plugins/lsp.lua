@@ -24,7 +24,6 @@ return {
       { "j-hui/fidget.nvim", opts = {} },
       -- Renders diagnostics using virtual lines
       { "https://git.sr.ht/~whynothugo/lsp_lines.nvim" },
-      "saghen/blink.cmp",
     },
     config = function()
       require("config.lsp").setup()
