@@ -40,6 +40,7 @@ This is my personal configurations for neovim. It may not suit you, but I wish t
 * [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) - Fuzzy finder
 * [Todo Comments](https://github.com/folke/todo-comments.nvim) - to highlight and search for todo comments like `TODO`, `HACK`, `BUG`, etc.
 * [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) - Theme
+* [twilight.nvim](https://github.com/folke/twilight.nvim) - Dims inactive portions of the code
 * [TreeSJ](https://github.com/Wansmer/treesj) - Splitting or joining blocks of code like arrays, hashes, statements, etc.
 * [Vim Fugitive](https://github.com/tpope/vim-fugitive) - A git wrapper
 * [Which Key](https://github.com/folke/which-key.nvim/) - Shows available keybindings.

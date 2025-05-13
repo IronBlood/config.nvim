@@ -15,4 +15,14 @@ return {
       },
     },
   },
+  {
+    "folke/twilight.nvim",
+    config = function()
+      local tl = require("twilight")
+      tl.setup({
+        context = 2,
+      })
+      vim.keymap.set("n", "<leader>z", tl.toggle, { desc = "Toggle Twilight" })
+    end,
+  },
 }
