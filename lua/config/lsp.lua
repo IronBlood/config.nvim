@@ -227,6 +227,9 @@ M.setup = function()
       end,
     },
   })
+
+  require("config.luasnip")
+  require("snippets")
 end
 
 -- M.setup()

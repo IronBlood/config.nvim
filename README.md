@@ -18,6 +18,7 @@ This is my personal configurations for neovim. It may not suit you, but I wish t
 * [Comment.nvim](https://github.com/numToStr/Comment.nvim) - Comment with motions
 * [conform.nvim](https://github.com/stevearc/conform.nvim) - Formatter
 * [fidget](https://github.com/j-hui/fidget.nvim) - Extensible UI for neovim notifications and LSP progress messages.
+* [Friendly Snippets](https://github.com/rafamadriz/friendly-snippets) - Set of preconfigured snippets for different languages.
 * [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) - Git integration
 * [hlargs.nvim](https://github.com/m-demare/hlargs.nvim) - Highlight arguments' definitions and usages, using Treesitter
 * [ident-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) - This plugin adds indentation guides to Neovim.

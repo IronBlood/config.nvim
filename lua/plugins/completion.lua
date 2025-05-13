@@ -16,7 +16,7 @@ return {
       end)(),
       dependencies = {
         -- Adds a number of user-friendly snippets
-        --'rafamadriz/friendly-snippets',
+        "rafamadriz/friendly-snippets",
       },
     },
     "folke/lazydev.nvim",
