@@ -164,9 +164,7 @@ M.setup = function()
           -- This is not official yet
           -- See LuaLS/lua-language-server#3155
           addonRepositoryPath = parsed.addonRepositoryPath,
-          completion = {
-            callSnippet = "Replace",
-          },
+          completion = {},
           workspace = { checkThirdParty = false },
           telemetry = { enable = false },
         },
