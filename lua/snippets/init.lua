@@ -56,4 +56,8 @@ ls.add_snippets("lua", {
   ltb,
 })
 
-require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip.loaders.from_vscode").lazy_load({
+  exclude = {
+    "javascript",
+  },
+})
