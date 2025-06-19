@@ -158,6 +158,7 @@ M.setup = function()
     clangd = {},
     eslint = {},
     gopls = {},
+    jdtls = {},
     lua_ls = {
       settings = {
         Lua = {
@@ -221,6 +222,9 @@ M.setup = function()
       function(server_name)
         local server = servers[server_name] or {}
         server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+        if server_name == "jdtls" then
+          server.capabilities.textDocument.completion.completionItem.snippetSupport = false
+        end
         require("lspconfig")[server_name].setup(server)
       end,
     },
