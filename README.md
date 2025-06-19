@@ -31,7 +31,11 @@ This is my personal configurations for neovim. It may not suit you, but I wish t
 * [mason-lspconfig.nvim](https://github.com/mason-org/mason-lspconfig.nvim)
 * [mason-tool-installer.nvim](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim) - Install and upgrade 3rd party tools.
 * [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim) - Theme
+* [nvim-dap](https://github.com/mfussenegger/nvim-dap) - Debug Adapter Protocol client implementation for Neovim
+* [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui) - A UI for nvim-dap
+* [nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text) - Adds virtual text support to nvim-dap.
 * [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
+* [nvim-nio](https://github.com/nvim-neotest/nvim-nio) - A library for asynchronous IO in Neovim
 * [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua) - A file explorer.
 * [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - Nvim Treesitter configurations and abstraction layer
 * [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) - Nerd Font icons.
