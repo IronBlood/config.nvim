@@ -29,4 +29,7 @@ return {
       require("config.lsp").setup()
     end,
   },
+  {
+    "b0o/SchemaStore.nvim",
+  },
 }

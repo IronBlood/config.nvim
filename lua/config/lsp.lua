@@ -159,6 +159,23 @@ M.setup = function()
     eslint = {},
     gopls = {},
     jdtls = {},
+    jsonls = {
+      settings = {
+        json = {
+          schemas = require("schemastore").json.schemas({
+            select = {
+              ".eslintrc",
+              "babelrc.json",
+              "jsconfig.json",
+              "tsconfig.json",
+              "package.json",
+              "prettierrc.json",
+            },
+          }),
+          validate = { enable = true },
+        },
+      },
+    },
     lua_ls = {
       settings = {
         Lua = {
@@ -194,6 +211,20 @@ M.setup = function()
         vue = {
           hybridMode = false,
         },
+      },
+    },
+    yamlls = {
+      settings = {
+        schemaStore = {
+          enable = false,
+          url = "",
+        },
+        schemas = require("schemastore").yaml.schemas({
+          select = {
+            "GitHub Workflow",
+            "docker-compose.yml",
+          },
+        }),
       },
     },
   }
