@@ -24,7 +24,7 @@ return {
       -- Useful status updates for LSP
       { "j-hui/fidget.nvim", opts = {} },
       -- Renders diagnostics using virtual lines
-      { "https://git.sr.ht/~whynothugo/lsp_lines.nvim" },
+      { "https://git.sr.ht/~whynothugo/lsp_lines.nvim", version = "3.x" },
     },
     config = function()
       require("config.lsp").setup()
