@@ -206,9 +206,10 @@ M.setup = function()
         },
       },
     },
-    volar = {
+    vuels = {
       init_options = {
         vue = {
+          -- TODO https://github.com/vuejs/language-tools/pull/5248
           hybridMode = false,
         },
       },
@@ -256,13 +257,30 @@ M.setup = function()
         if server_name == "jdtls" then
           server.capabilities.textDocument.completion.completionItem.snippetSupport = false
         end
-        require("lspconfig")[server_name].setup(server)
+        if server_name == "vuels" then
+          -- mason 1.x uses "vuels", but lspconfig uses "vue_ls"
+          server_name = "vue_ls"
+        end
+        vim.lsp.config(server_name, server)
+        vim.lsp.enable(server_name)
       end,
     },
   })
 
   require("config.luasnip")
   require("snippets")
+
+  require("lsp_lines").setup()
+  vim.diagnostic.config({ virtual_text = false })
+
+  vim.keymap.set("", "<leader>l", function()
+    local config = vim.diagnostic.config() or {}
+    if config.virtual_text then
+      vim.diagnostic.config { virtual_text = false, virtual_lines = true }
+    else
+      vim.diagnostic.config { virtual_text = true, virtual_lines = false }
+    end
+  end, { desc = "Toggle lsp_lines" })
 end
 
 -- M.setup()
