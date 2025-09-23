@@ -2,6 +2,7 @@ return {
   {
     -- LSP Configuration & Plugins
     "neovim/nvim-lspconfig",
+    version = "2.*",
     dependencies = {
       {
         -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
