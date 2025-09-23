@@ -206,7 +206,7 @@ M.setup = function()
         },
       },
     },
-    vue_ls = {
+    vuels = {
       init_options = {
         vue = {
           -- TODO https://github.com/vuejs/language-tools/pull/5248
@@ -256,6 +256,10 @@ M.setup = function()
         server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
         if server_name == "jdtls" then
           server.capabilities.textDocument.completion.completionItem.snippetSupport = false
+        end
+        if server_name == "vuels" then
+          -- mason 1.x uses "vuels", but lspconfig uses "vue_ls"
+          server_name = "vue_ls"
         end
         vim.lsp.config(server_name, server)
         vim.lsp.enable(server_name)
