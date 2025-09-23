@@ -122,6 +122,7 @@ return {
   -- colorscheme tokyonight-moon
   {
     "folke/tokyonight.nvim",
+    version = "4.*",
     lazy = false,
     priority = 1000,
     opts = {},
