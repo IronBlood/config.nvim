@@ -206,9 +206,10 @@ M.setup = function()
         },
       },
     },
-    volar = {
+    vue_ls = {
       init_options = {
         vue = {
+          -- TODO https://github.com/vuejs/language-tools/pull/5248
           hybridMode = false,
         },
       },
