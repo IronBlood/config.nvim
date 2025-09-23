@@ -2,6 +2,7 @@ local get_code
 
 return {
   "olimorris/codecompanion.nvim",
+  version = "17.*",
   lazy = true,
   -- setup
   opts = {
