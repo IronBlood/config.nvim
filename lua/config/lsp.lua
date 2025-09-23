@@ -256,7 +256,8 @@ M.setup = function()
         if server_name == "jdtls" then
           server.capabilities.textDocument.completion.completionItem.snippetSupport = false
         end
-        require("lspconfig")[server_name].setup(server)
+        vim.lsp.config(server_name, server)
+        vim.lsp.enable(server_name)
       end,
     },
   })
