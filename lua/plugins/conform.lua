@@ -17,6 +17,9 @@ return {
       desc = "[F]ormat buffer",
     },
   },
+  config = function()
+    require("config.conform")
+  end,
   opts = {
     notify_on_error = false,
     format_on_save = function(bufnr)
@@ -24,20 +27,25 @@ return {
       -- have a well standardized coding style. You can add additional
       -- languages here or re-enable it for the disabled ones.
       local disable_filetypes = {
-        c = true,
-        cpp = true,
-        javascript = true,
-        typescript = true,
-        --lua = true,
+        "c",
+        "cpp",
+        "javascript",
+        "typescript",
+        -- "lua",
       }
-      if disable_filetypes[vim.bo[bufnr].filetype] then
-        return nil
-      else
-        return {
-          timeout_ms = 500,
-          lsp_format = "fallback",
-        }
+
+      if vim.tbl_contains(disable_filetypes, vim.bo[bufnr].filetype) then
+        return
       end
+
+      if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+        return
+      end
+
+      return {
+        timeout_ms = 500,
+        lsp_format = "fallback",
+      }
     end,
     formatters_by_ft = {
       lua = { "stylua" },
