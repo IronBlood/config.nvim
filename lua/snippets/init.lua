@@ -9,6 +9,30 @@ local i = ls.insert_node
 --   JavaScript and TypeScript related
 -- =====================================
 
+-- JavaScript Test Node import
+local jtni = s("jtni", {
+  t({
+    "import { describe, it } from \"node:test\";",
+    "import assert from \"node:assert/strict\";",
+    "",
+  }),
+})
+
+-- JavaScript Test Node body
+local jtnb = s("jtnb", {
+  t('describe("'),
+  i(1, "test-problem"),
+  t('", () => {'),
+  t({ "", "\tconst testcases = [", "\t];", "" }),
+  t({ "\tfor (let i = 0; i < testcases.length; i++) {", "" }),
+  t({ "\t\tit(`test-${i}`, () => {", "" }),
+  t({ "\t\t\tconst tc = testcases[i];", "" }),
+  t("\t\t\t"),
+  i(2, "// TODO: write your assertions here"),
+  t({ "", "\t\t});", "\t}", "});" }),
+  i(0),
+})
+
 -- JavaScript Test Jest import
 local jtji = s("jtji", {
   t("import { describe, it, expect } from \"@jest/globals\";"),
@@ -33,12 +57,16 @@ clear_snippets("javascript")
 ls.add_snippets("javascript", {
   jtji,
   jtjb,
+  jtni,
+  jtnb,
 })
 
 clear_snippets("typescript")
 ls.add_snippets("typescript", {
   jtji,
   jtjb,
+  jtni,
+  jtnb,
 })
 
 -- ===============
