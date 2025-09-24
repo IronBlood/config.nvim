@@ -9,8 +9,13 @@ local i = ls.insert_node
 --   JavaScript and TypeScript related
 -- =====================================
 
--- JavaScript Test Jest
-local jtj = s("jtj", {
+-- JavaScript Test Jest import
+local jtji = s("jtji", {
+  t("import { describe, it, expect } from \"@jest/globals\";"),
+})
+
+-- JavaScript Test Jest body
+local jtjb = s("jtjb", {
   t('describe("'),
   i(1, "test-problem"),
   t('", () => {'),
@@ -26,12 +31,14 @@ local jtj = s("jtj", {
 
 clear_snippets("javascript")
 ls.add_snippets("javascript", {
-  jtj,
+  jtji,
+  jtjb,
 })
 
 clear_snippets("typescript")
 ls.add_snippets("typescript", {
-  jtj,
+  jtji,
+  jtjb,
 })
 
 -- ===============
