@@ -4,6 +4,17 @@ local set = vim.keymap.set
 -- [[ Configure LSP ]]
 local M = {}
 
+---@param list (string|table)[]
+---@param replacement table
+local function update_ensure_installed(list, replacement)
+  for i, v in ipairs(list) do
+    if type(v) == "string" and v == replacement[1] then
+      list[i] = replacement
+      break
+    end
+  end
+end
+
 M.setup = function()
   --  This function gets run when an LSP attaches to a particular buffer.
   --    That is to say, every time a new file is opened that is associated with
@@ -240,6 +251,25 @@ M.setup = function()
   local ensure_installed = vim.tbl_keys(servers or {})
   vim.list_extend(ensure_installed, {
     "stylua", -- Used to format Lua code
+  })
+
+  update_ensure_installed(ensure_installed, {
+    "gopls",
+    condition = function()
+      return vim.fn.executable("go") == 1
+    end
+  })
+  update_ensure_installed(ensure_installed, {
+    "jdtls",
+    condition = function()
+      return vim.fn.executable("java") == 1
+    end
+  })
+  update_ensure_installed(ensure_installed, {
+    "rust_analyzer",
+    condition = function()
+      return vim.fn.executable("rustc") == 1
+    end
   })
   require("mason-tool-installer").setup({
     ensure_installed = ensure_installed,
