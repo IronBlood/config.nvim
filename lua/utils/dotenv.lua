@@ -44,8 +44,7 @@ return {
   parse = parse_env_file,
   parse_plugin_env = function()
     local str = debug.getinfo(2, "S").source:sub(2)
-    local root
-    vim.fs.root(str, { ".env" })
+    local root = vim.fs.root(str, { ".env" })
     return root and parse_env_file(vim.fs.joinpath(root, ".env")) or {}
   end,
   ---@param file string
