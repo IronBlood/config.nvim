@@ -50,7 +50,11 @@ M.setup = function()
       map("gO",  builtin.lsp_document_symbols,          "Open Document Symbols")
       map("gW",  builtin.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
       map("grt", builtin.lsp_type_definitions,          "Type [D]efinition")
-      map("K",   vim.lsp.buf.hover,                     "Hover Documentation")
+      map("K",   function()
+        vim.lsp.buf.hover({
+          border = 'rounded'
+        })
+      end, "Hover Documentation")
       -- Lesser used LSP functionality
       map("<leader>wa", vim.lsp.buf.add_workspace_folder,    "[W]orkspace [A]dd Folder")
       map("<leader>wr", vim.lsp.buf.remove_workspace_folder, "[W]orkspace [R]emove Folder")
