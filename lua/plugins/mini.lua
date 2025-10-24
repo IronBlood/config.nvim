@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.nvim",
+  "nvim-mini/mini.nvim",
   enabled = false,
   config = function()
     -- Add/delete/replace surroundings (brackets, quotes, etc.)
