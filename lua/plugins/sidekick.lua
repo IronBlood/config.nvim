@@ -18,7 +18,7 @@ end
 
 return {
   "folke/sidekick.nvim",
-  version = "1.*",
+  version = "2.*",
   opts = {
     cli = {
       mux = {
