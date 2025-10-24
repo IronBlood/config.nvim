@@ -244,6 +244,7 @@ M.setup = function()
       },
     },
   }
+  servers["copilot-language-server"] = {}
 
   -- LSP servers and clients are able to communicate to each other what features they support.
   --  By default, Neovim doesn't support everything that is in the LSP specification.
@@ -281,6 +282,18 @@ M.setup = function()
 
   local mason_lspconfig = require("mason-lspconfig")
 
+  ---Normalize server names across toolchains.
+  ---@param server_name string
+  ---@return string
+  local function update_server_name(server_name)
+    local replacements = {
+      vuels = "vue_ls",
+      ["copilot-languag-server"] = "copilot",
+    }
+
+    return replacements[server_name] or server_name
+  end
+
   mason_lspconfig.setup({
     ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
     automatic_installation = false,
@@ -291,10 +304,7 @@ M.setup = function()
         if server_name == "jdtls" then
           server.capabilities.textDocument.completion.completionItem.snippetSupport = false
         end
-        if server_name == "vuels" then
-          -- mason 1.x uses "vuels", but lspconfig uses "vue_ls"
-          server_name = "vue_ls"
-        end
+        server_name = update_server_name(server_name)
         vim.lsp.config(server_name, server)
         vim.lsp.enable(server_name)
       end,
