@@ -262,19 +262,19 @@ M.setup = function()
     "gopls",
     condition = function()
       return vim.fn.executable("go") == 1
-    end
+    end,
   })
   update_ensure_installed(ensure_installed, {
     "jdtls",
     condition = function()
       return vim.fn.executable("java") == 1
-    end
+    end,
   })
   update_ensure_installed(ensure_installed, {
     "rust_analyzer",
     condition = function()
       return vim.fn.executable("rustc") == 1
-    end
+    end,
   })
   require("mason-tool-installer").setup({
     ensure_installed = ensure_installed,
@@ -320,9 +320,9 @@ M.setup = function()
   vim.keymap.set("", "<leader>l", function()
     local config = vim.diagnostic.config() or {}
     if config.virtual_text then
-      vim.diagnostic.config { virtual_text = false, virtual_lines = true }
+      vim.diagnostic.config({ virtual_text = false, virtual_lines = true })
     else
-      vim.diagnostic.config { virtual_text = true, virtual_lines = false }
+      vim.diagnostic.config({ virtual_text = true, virtual_lines = false })
     end
   end, { desc = "Toggle lsp_lines" })
 end
