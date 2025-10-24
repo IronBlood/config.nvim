@@ -1,3 +1,21 @@
+local parsed = require("utils.dotenv").parse_plugin_env()
+local HTTPS_PROXY = parsed.HTTPS_PROXY or ""
+
+local tools = {}
+
+if #HTTPS_PROXY > 0 then
+  for _, name in ipairs({ "codex", "copilot", "gemini" }) do
+    tools[name] = {
+      env = {
+        http_proxy = HTTPS_PROXY,
+        HTTP_PROXY = HTTPS_PROXY,
+        https_proxy = HTTPS_PROXY,
+        HTTPS_PROXY = HTTPS_PROXY,
+      },
+    }
+  end
+end
+
 return {
   "folke/sidekick.nvim",
   version = "1.*",
@@ -7,6 +25,7 @@ return {
         backend = "tmux",
         enabled = true,
       },
+      tools = tools,
     },
     -- disable Next Edit Suggestion
     nex = {
