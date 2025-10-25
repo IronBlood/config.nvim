@@ -25,5 +25,8 @@ return {
     -- - sd'   - [S]urround [D]elete [']quotes
     -- - sr)'  - [S]urround [R]eplace [)] [']
     require("mini.surround").setup()
+    -- lua MiniTrailspace.trim()
+    -- lua MiniTrailspace.trim_last_lines()
+    require("mini.trailspace").setup()
   end,
 }
