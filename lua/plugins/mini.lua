@@ -2,6 +2,7 @@ return {
   "nvim-mini/mini.nvim",
   enabled = false,
   config = function()
+    require("mini.ai").setup()
     -- Try:
     -- - ga=
     -- - gajc
