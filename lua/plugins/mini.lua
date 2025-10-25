@@ -17,6 +17,8 @@ return {
     -- []Uu undo / redo
     -- []Ww window in current lab
     require("mini.bracketed").setup()
+    -- alt/meta + hjkl
+    require("mini.move").setup()
     -- Add/delete/replace surroundings (brackets, quotes, etc.)
     --
     -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
