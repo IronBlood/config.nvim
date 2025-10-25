@@ -6,6 +6,17 @@ return {
     -- - ga=
     -- - gajc
     require("mini.align").setup()
+    -- []Bb buffer
+    -- []Cc comment
+    -- []Xx conflict
+    -- []Dd diagnostic
+    -- []Ff file
+    -- []Ii indent
+    -- []Oo old files WARN BE CAREFUL
+    -- []Qq quick fix
+    -- []Uu undo / redo
+    -- []Ww window in current lab
+    require("mini.bracketed").setup()
     -- Add/delete/replace surroundings (brackets, quotes, etc.)
     --
     -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
