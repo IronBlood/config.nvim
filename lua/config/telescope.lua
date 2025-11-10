@@ -43,8 +43,17 @@ local function find_git_root()
   end
 
   -- Find the Git root directory from the current file's path
-  local git_root = vim.fn.systemlist("git -C " .. vim.fn.escape(current_dir, " ") .. " rev-parse --show-toplevel")[1]
-  if vim.v.shell_error ~= 0 then
+  local Job = require("plenary.job")
+  local job = Job:new({
+    command = "git",
+    args = { "rev-parse", "--show-toplevel" },
+    cwd = current_dir,
+  })
+  local ok, res = pcall(function()
+    return job:sync()
+  end)
+  local git_root = (ok and res and res[1]) or nil
+  if not git_root or git_root == "" then
     print("Not a git repository. Searching on current working directory")
     return cwd
   end
