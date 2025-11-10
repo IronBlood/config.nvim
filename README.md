@@ -6,6 +6,26 @@ This is my personal configurations for neovim. It may not suit you, but I wish t
 
 * Neovim v0.10+
 * Git
+* make / CC (Linux)
+* cmake / MSVC (Windows)
+
+## Building Treesitter on Windows
+
+Reference [Windows support (Archived)](https://web.archive.org/web/20250818122834/https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support).
+
+To import build tools:
+
+`cmd.exe`
+
+```batch
+call "%ProgramFiles(x86)%\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64
+```
+
+PowerShell
+
+```pwsh
+& "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\Launch-VsDevShell.ps1" -Arch amd64
+```
 
 ## Plugins
 
