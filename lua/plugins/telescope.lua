@@ -22,6 +22,12 @@ return {
         end
       end,
       cond = function()
+        -- Windows
+        if vim.fn.has("win32") == 1 then
+          return vim.fn.executable("cmake") == 1
+        end
+
+        -- Linux and Linux-like
         return vim.fn.executable("make") == 1
       end,
     },
