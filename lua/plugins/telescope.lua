@@ -27,7 +27,6 @@ return {
     },
     "nvim-telescope/telescope-smart-history.nvim",
     "nvim-telescope/telescope-ui-select.nvim",
-    "kkharji/sqlite.lua",
 
     -- Useful for getting pretty icons, but requires a Nerd Font.
     { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },

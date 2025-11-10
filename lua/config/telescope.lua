@@ -1,5 +1,3 @@
-local data = assert(vim.fn.stdpath("data"))
-
 require("telescope").setup({
   defaults = {
     mappings = {
@@ -10,10 +8,6 @@ require("telescope").setup({
     },
   },
   extensions = {
-    history = {
-      path = vim.fs.joinpath(data, "telescope_history.sqlite3"),
-      limit = 100,
-    },
     ["ui-select"] = {
       require("telescope.themes").get_dropdown(),
     },

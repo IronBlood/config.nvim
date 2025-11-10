@@ -41,7 +41,6 @@ This is my personal configurations for neovim. It may not suit you, but I wish t
 * [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) - Nerd Font icons.
 * [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) - Useful functions written in Lua.
 * [SchemaStore.nvim](https://github.com/b0o/SchemaStore.nvim) - JSON schemas for Neovim (w/ `jsonls` and `yamlls`).
-* [sqlite.lua](https://github.com/kkharji/sqlite.lua) - SQLite LuaJIT binding with a very simple api.
 * [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) - Fuzzy finder
 * [Todo Comments](https://github.com/folke/todo-comments.nvim) - to highlight and search for todo comments like `TODO`, `HACK`, `BUG`, etc.
 * [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) - Theme
