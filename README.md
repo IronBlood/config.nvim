@@ -9,6 +9,15 @@ This is my personal configurations for neovim. It may not suit you, but I wish t
 * make / CC (Linux)
 * cmake / MSVC (Windows)
 
+## Config Locations
+
+|  OS  | Path |
+| :--: | :--- |
+| Linux / macOS | `~/.config/nvim` |
+| Windows | `%LOCALAPPDATA%\nvim` (`cmd.exe`)<br>`${env:LOCALAPPDATA}\nvim` (`powershell.exe`) |
+
+Clone into the target folder directly, or create a symlink: `ln -s /path/to/config.nvim ~/.config/nvim` on Linux/macOS, `New-Item -ItemType Junction -Path  $env:LOCALAPPDATA\nvim -Target C:\path\to\config.nvim` in PowerShell, or `mklink /J "%LOCALAPPDATA%\nvim" "C:\path\to\config.nvim"` in `cmd.exe`.
+
 ## Building Treesitter on Windows
 
 Reference [Windows support (Archived)](https://web.archive.org/web/20250818122834/https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support).
