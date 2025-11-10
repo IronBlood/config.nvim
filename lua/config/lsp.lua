@@ -276,6 +276,12 @@ M.setup = function()
       return vim.fn.executable("rustc") == 1
     end,
   })
+  update_ensure_installed(ensure_installed, {
+    "cmake",
+    condition = function()
+      return vim.fn.executable("python3") == 1
+    end,
+  })
   require("mason-tool-installer").setup({
     ensure_installed = ensure_installed,
   })
