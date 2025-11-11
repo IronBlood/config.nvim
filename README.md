@@ -1,6 +1,6 @@
 # Config.nvim
 
-This is my personal configurations for neovim. It may not suit you, but I wish there's something helpful.
+This is my personal configuration for Neovim. It may not suit you, but I hope you find something useful in here.
 
 ## Requirements
 
@@ -20,9 +20,10 @@ Clone into the target folder directly, or create a symlink: `ln -s /path/to/conf
 
 ## Building Treesitter on Windows
 
-Reference [Windows support (Archived)](https://web.archive.org/web/20250818122834/https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support).
+See the archived [Windows support](https://web.archive.org/web/20250818122834/https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support) for full details. The short version:
 
-To import build tools:
+- Install the **Desktop development with C++** workload (or the standalone Build Tools) so `cl.exe` is available.
+- Before running `:TSUpdate`, open a shell that has the MSVC environment loaded.
 
 `cmd.exe`
 
@@ -35,6 +36,8 @@ PowerShell
 ```pwsh
 & "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\Launch-VsDevShell.ps1" -Arch amd64
 ```
+
+Once the environment variables are set, start Neovim from that shell and run `:TSUpdate`.
 
 ## Plugins
 
