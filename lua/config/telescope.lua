@@ -1,5 +1,3 @@
-local data = assert(vim.fn.stdpath("data"))
-
 require("telescope").setup({
   defaults = {
     mappings = {
@@ -10,10 +8,6 @@ require("telescope").setup({
     },
   },
   extensions = {
-    history = {
-      path = vim.fs.joinpath(data, "telescope_history.sqlite3"),
-      limit = 100,
-    },
     ["ui-select"] = {
       require("telescope.themes").get_dropdown(),
     },
@@ -22,7 +16,6 @@ require("telescope").setup({
 
 local load_extension = require("telescope").load_extension
 pcall(load_extension, "fzf")
---pcall(load_extension, "smart_history")
 pcall(load_extension, "ui-select")
 
 local builtin = require("telescope.builtin")
@@ -43,8 +36,17 @@ local function find_git_root()
   end
 
   -- Find the Git root directory from the current file's path
-  local git_root = vim.fn.systemlist("git -C " .. vim.fn.escape(current_dir, " ") .. " rev-parse --show-toplevel")[1]
-  if vim.v.shell_error ~= 0 then
+  local Job = require("plenary.job")
+  local job = Job:new({
+    command = "git",
+    args = { "rev-parse", "--show-toplevel" },
+    cwd = current_dir,
+  })
+  local ok, res = pcall(function()
+    return job:sync()
+  end)
+  local git_root = (ok and res and res[1]) or nil
+  if not git_root or git_root == "" then
     print("Not a git repository. Searching on current working directory")
     return cwd
   end

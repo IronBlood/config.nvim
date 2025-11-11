@@ -1,11 +1,43 @@
 # Config.nvim
 
-This is my personal configurations for neovim. It may not suit you, but I wish there's something helpful.
+This is my personal configuration for Neovim. It may not suit you, but I hope you find something useful in here.
 
 ## Requirements
 
 * Neovim v0.10+
 * Git
+* make / CC (Linux)
+* cmake / MSVC (Windows)
+
+## Config Locations
+
+|  OS  | Path |
+| :--: | :--- |
+| Linux / macOS | `~/.config/nvim` |
+| Windows | `%LOCALAPPDATA%\nvim` (`cmd.exe`)<br>`${env:LOCALAPPDATA}\nvim` (`powershell.exe`) |
+
+Clone into the target folder directly, or create a symlink: `ln -s /path/to/config.nvim ~/.config/nvim` on Linux/macOS, `New-Item -ItemType Junction -Path  $env:LOCALAPPDATA\nvim -Target C:\path\to\config.nvim` in PowerShell, or `mklink /J "%LOCALAPPDATA%\nvim" "C:\path\to\config.nvim"` in `cmd.exe`.
+
+## Building Treesitter on Windows
+
+See the archived [Windows support](https://web.archive.org/web/20250818122834/https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support) for full details. The short version:
+
+- Install the **Desktop development with C++** workload (or the standalone Build Tools) so `cl.exe` is available.
+- Before running `:TSUpdate`, open a shell that has the MSVC environment loaded.
+
+`cmd.exe`
+
+```batch
+call "%ProgramFiles(x86)%\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64
+```
+
+PowerShell
+
+```pwsh
+& "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\Launch-VsDevShell.ps1" -Arch amd64
+```
+
+Once the environment variables are set, start Neovim from that shell and run `:TSUpdate`.
 
 ## Plugins
 
@@ -41,7 +73,6 @@ This is my personal configurations for neovim. It may not suit you, but I wish t
 * [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) - Nerd Font icons.
 * [plenary.nvim](https://github.com/nvim-lua/plenary.nvim) - Useful functions written in Lua.
 * [SchemaStore.nvim](https://github.com/b0o/SchemaStore.nvim) - JSON schemas for Neovim (w/ `jsonls` and `yamlls`).
-* [sqlite.lua](https://github.com/kkharji/sqlite.lua) - SQLite LuaJIT binding with a very simple api.
 * [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) - Fuzzy finder
 * [Todo Comments](https://github.com/folke/todo-comments.nvim) - to highlight and search for todo comments like `TODO`, `HACK`, `BUG`, etc.
 * [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) - Theme

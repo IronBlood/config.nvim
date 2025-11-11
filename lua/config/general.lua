@@ -1,5 +1,4 @@
 local o = vim.o
-local isdirectory = vim.fn.isdirectory
 
 o.compatible = false
 o.autoread = true
@@ -32,13 +31,6 @@ o.autoindent = false
 -- o.breakindent = true
 
 o.swapfile = true
-local tmpdir = os.getenv("HOME") .. "/.vimtmp"
-if isdirectory(tmpdir) == 0 then
-  vim.fn.mkdir(tmpdir)
-end
-if isdirectory(tmpdir) == 1 then
-  o.dir = tmpdir
-end
 
 -- Save undo history
 o.undofile = true

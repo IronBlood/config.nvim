@@ -18,7 +18,6 @@ return {
         -- Adds a number of user-friendly snippets
       },
     },
-    "folke/lazydev.nvim",
   },
   config = function()
     require("config.completion")
