@@ -221,7 +221,7 @@ M.setup = function()
         },
       },
     },
-    vuels = {
+    vue_ls = {
       init_options = {
         vue = {
           -- TODO https://github.com/vuejs/language-tools/pull/5248
@@ -293,7 +293,6 @@ M.setup = function()
   ---@return string
   local function update_server_name(server_name)
     local replacements = {
-      vuels = "vue_ls",
       ["copilot-languag-server"] = "copilot",
     }
 
