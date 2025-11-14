@@ -14,17 +14,16 @@ return {
       build = function()
         if vim.fn.has("win32") == 1 then
           -- make sure CMake, and the Microsoft C++ Build Tools are installed on Windows
-          return 'cmake -S. -Bbuild -G "Visual Studio 17 2022" -A x64'
-            .. " && cmake --build build --config Release --target install"
+          return "mingw32-make"
         else
           -- for Linux and Linux-like systems
           return "make"
         end
       end,
       cond = function()
-        -- Windows
+        -- Windows + msys2
         if vim.fn.has("win32") == 1 then
-          return vim.fn.executable("cmake") == 1
+          return vim.fn.executable("mingw32-make") == 1
         end
 
         -- Linux and Linux-like
