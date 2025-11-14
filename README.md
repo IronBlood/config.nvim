@@ -7,7 +7,7 @@ This is my personal configuration for Neovim. It may not suit you, but I hope yo
 * Neovim v0.10+
 * Git
 * make / CC (Linux)
-* cmake / MSVC (Windows)
+* make / gcc (Windows + [msys2](https://www.msys2.org/), see [PR#3](https://github.com/IronBlood/config.nvim/pull/3))
 
 ## Config Locations
 
@@ -17,27 +17,6 @@ This is my personal configuration for Neovim. It may not suit you, but I hope yo
 | Windows | `%LOCALAPPDATA%\nvim` (`cmd.exe`)<br>`${env:LOCALAPPDATA}\nvim` (`powershell.exe`) |
 
 Clone into the target folder directly, or create a symlink: `ln -s /path/to/config.nvim ~/.config/nvim` on Linux/macOS, `New-Item -ItemType Junction -Path  $env:LOCALAPPDATA\nvim -Target C:\path\to\config.nvim` in PowerShell, or `mklink /J "%LOCALAPPDATA%\nvim" "C:\path\to\config.nvim"` in `cmd.exe`.
-
-## Building Treesitter on Windows
-
-See the archived [Windows support](https://web.archive.org/web/20250818122834/https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support) for full details. The short version:
-
-- Install the **Desktop development with C++** workload (or the standalone Build Tools) so `cl.exe` is available.
-- Before running `:TSUpdate`, open a shell that has the MSVC environment loaded.
-
-`cmd.exe`
-
-```batch
-call "%ProgramFiles(x86)%\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\VsDevCmd.bat" -arch=x64
-```
-
-PowerShell
-
-```pwsh
-& "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\Tools\Launch-VsDevShell.ps1" -Arch amd64
-```
-
-Once the environment variables are set, start Neovim from that shell and run `:TSUpdate`.
 
 ## Plugins
 
