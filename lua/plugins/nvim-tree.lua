@@ -17,6 +17,10 @@ return {
       }
     end
     vim.keymap.set("n", "<C-n>", api.tree.toggle, opts("Toggle nvim tree"))
-    require("nvim-tree").setup({})
+    require("nvim-tree").setup({
+      git = {
+        timeout = 10000,
+      },
+    })
   end,
 }
