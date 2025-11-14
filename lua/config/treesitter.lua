@@ -1,12 +1,5 @@
 local M = {}
 
-if vim.fn.has("win32") == 1 and vim.fn.executable("cl") ~= 1 then
-  vim.notify(
-    "Tree-sitter build env not found (no cl.exe). Start from Developer PowerShell x64 before TSInstall/TSUpdate.",
-    vim.log.levels.WARN
-  )
-end
-
 M.setup = function()
   vim.defer_fn(function()
     require("nvim-treesitter.configs").setup({

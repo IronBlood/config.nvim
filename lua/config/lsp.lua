@@ -244,7 +244,6 @@ M.setup = function()
       },
     },
   }
-  servers["copilot-language-server"] = {}
 
   -- LSP servers and clients are able to communicate to each other what features they support.
   --  By default, Neovim doesn't support everything that is in the LSP specification.
@@ -292,9 +291,7 @@ M.setup = function()
   ---@param server_name string
   ---@return string
   local function update_server_name(server_name)
-    local replacements = {
-      ["copilot-languag-server"] = "copilot",
-    }
+    local replacements = {}
 
     return replacements[server_name] or server_name
   end

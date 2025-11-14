@@ -23,20 +23,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
   end,
 })
 
-if vim.fn.has("win32") == 1 then
-  if vim.fn.executable("pwsh.exe") == 1 then
-    vim.opt.shell = "pwsh.exe"
-    vim.opt.shellcmdflag = "-NoLogo -ExecutionPolicy RemoteSigned -Command"
-    vim.opt.shellquote = ""
-    vim.opt.shellxquote = ""
-  elseif vim.fn.executable("powershell.exe") == 1 then
-    vim.opt.shell = "powershell.exe"
-    vim.opt.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command"
-    vim.opt.shellquote = ""
-    vim.opt.shellxquote = ""
-  end
-end
-
 local function create_bottom_window(opts)
   opts = opts or {}
 

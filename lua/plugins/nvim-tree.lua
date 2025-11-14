@@ -19,6 +19,7 @@ return {
     vim.keymap.set("n", "<C-n>", api.tree.toggle, opts("Toggle nvim tree"))
     require("nvim-tree").setup({
       git = {
+        enable = vim.fn.has("win32") == 0,
         timeout = 10000,
       },
     })
