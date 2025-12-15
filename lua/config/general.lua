@@ -15,7 +15,25 @@ o.shiftround = true
 o.eol = true
 o.fixeol = true
 
-o.clipboard = "unnamedplus"
+if vim.fn.has("win32") == 1 and vim.fn.executable("win32yank.exe") == 0 then
+  -- See ":h clipboard-wsl"
+  -- https://stackoverflow.com/a/79430710/803378
+  -- https://github.com/equalsraf/win32yank
+  vim.g.clipboard = {
+    name = "WslClipboard",
+    copy = {
+      ["+"] = "clip.exe",
+      ["*"] = "clip.exe",
+    },
+    paste = {
+      ["+"] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+      ["*"] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    },
+    cache_enabled = 0,
+  }
+else
+  o.clipboard = "unnamedplus"
+end
 
 o.ttyfast = true
 
