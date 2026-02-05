@@ -287,8 +287,6 @@ M.setup = function()
   require("snippets")
 
   require("lsp_lines").setup()
-  vim.diagnostic.config({ virtual_text = false })
-
   vim.keymap.set("", "<leader>l", function()
     local config = vim.diagnostic.config() or {}
     if config.virtual_text then
