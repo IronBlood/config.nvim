@@ -87,7 +87,6 @@ set("n", "<leader>sh", builtin.help_tags,   { desc = "[S]earch [H]elp" })
 set("n", "<leader>sk", builtin.keymaps,     { desc = "[S]earch [K]eymaps" })
 set("n", "<leader>sf", builtin.find_files,  { desc = "[S]earch [F]iles" })
 set("n", "<leader>ss", builtin.builtin,     { desc = "[S]earch [S]elect Telescope" })
-set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 set("n", "<leader>sg", mrg,                 { desc = "[S]earch by [G]rep" })
 set("n", "<leader>sU", lub,                 { desc = "[S]earch [U]nsaved Buffers" })
 set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
@@ -101,6 +100,7 @@ set("n", "<leader>/",  a_cbff,              { desc = "[/] Fuzzily search in curr
 set("n", "<leader>s/", lg_of,               { desc = "[S]earch [/] in Open Files" })
 set("n", "<leader>sa", ff_lazy,             { desc = "[S]earch L[A]zy" })
 set("n", "<leader>sn", ff_config,           { desc = "[S]earch [N]eovim files" })
+set({ "n", "v" }, "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 -- stylua: ignore end
 
 vim.api.nvim_create_autocmd("LspAttach", {
