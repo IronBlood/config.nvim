@@ -105,6 +105,7 @@ M.setup = function()
   -- Diagnostic Config
   -- See :help vim.diagnostic.Opts
   vim.diagnostic.config({
+    update_in_insert = false,
     severity_sort = true,
     float = { border = "rounded", source = "if_many" },
     underline = { severity = vim.diagnostic.severity.ERROR },
@@ -119,20 +120,13 @@ M.setup = function()
       }
     or {},
     -- stylua: ignore end
-    virtual_text = {
-      source = "if_many",
-      spacing = 2,
-      format = function(diagnostic)
-        -- stylua: ignore
-        local diagnostic_message = {
-          [vim.diagnostic.severity.ERROR] = diagnostic.message,
-          [vim.diagnostic.severity.WARN]  = diagnostic.message,
-          [vim.diagnostic.severity.INFO]  = diagnostic.message,
-          [vim.diagnostic.severity.HINT]  = diagnostic.message,
-        }
-        return diagnostic_message[diagnostic.severity]
-      end,
-    },
+
+    -- Text shows up at the end of the line
+    virtual_text = true,
+    -- Teest shows up underneath the line, with virtual lines
+    virtual_lines = false,
+    -- Auto open the float, so you can easily read the errors when jumping with `[d` and `]d`
+    jump = { float = true },
   })
 
   -- Enable the following language servers
