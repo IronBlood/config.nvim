@@ -102,3 +102,24 @@ set("n", "<leader>s/", lg_of,               { desc = "[S]earch [/] in Open Files
 set("n", "<leader>sa", ff_lazy,             { desc = "[S]earch L[A]zy" })
 set("n", "<leader>sn", ff_config,           { desc = "[S]earch [N]eovim files" })
 -- stylua: ignore end
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("telescope-lsp-attach", { clear = true }),
+  callback = function(event)
+    local buf = event.buf
+    -- stylua: ignore start
+    set("n", "grr", builtin.lsp_references,
+      { buffer = buf, desc = "[G]oto [R]eferences" })
+    set("n", "gri", builtin.lsp_implementations,
+      { buffer = buf, desc = "[G]oto [I]mplementation" })
+    set("n", "grd", builtin.lsp_definitions,
+      { buffer = buf, desc = "[G]oto [D]efinition" })
+    set("n", "gO",  builtin.lsp_document_symbols,
+      { buffer = buf, desc = "Open Document Symbols" })
+    set("n", "gW",  builtin.lsp_dynamic_workspace_symbols,
+      { buffer = buf, desc = "[W]orkspace [S]ymbols" })
+    set("n", "grt", builtin.lsp_type_definitions,
+      { buffer = buf, desc = "Type [D]efinition" })
+    -- stylua: ignore end
+  end,
+})

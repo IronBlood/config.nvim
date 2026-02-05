@@ -39,17 +39,10 @@ M.setup = function()
         set(mode, keys, func, { buffer = event.buf, desc = desc })
       end
 
-      local builtin = require("telescope.builtin")
       -- stylua: ignore start
       map("grn", vim.lsp.buf.rename,                    "[R]e[n]ame")
       map("gra", vim.lsp.buf.code_action,               "[C]ode [A]ction", { "x", "n" })
-      map("grr", builtin.lsp_references,                "[G]oto [R]eferences")
-      map("gri", builtin.lsp_implementations,           "[G]oto [I]mplementation")
-      map("grd", builtin.lsp_definitions,               "[G]oto [D]efinition")
       map("grD", vim.lsp.buf.declaration,               "[G]oto [D]eclaration")
-      map("gO",  builtin.lsp_document_symbols,          "Open Document Symbols")
-      map("gW",  builtin.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
-      map("grt", builtin.lsp_type_definitions,          "Type [D]efinition")
       map("K",   function()
         vim.lsp.buf.hover({
           border = 'rounded'
