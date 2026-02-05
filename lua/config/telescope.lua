@@ -93,6 +93,7 @@ set("n", "<leader>sU", lub,                 { desc = "[S]earch [U]nsaved Buffers
 set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 set("n", "<leader>sr", builtin.resume,      { desc = "[S]earch [R]esume" })
 set("n", "<leader>s.", builtin.oldfiles,    { desc = '[S]earch Recent Files ("." for repeat)' })
+set("n", "<leader>sc", builtin.commands,    { desc = "[S]earch [C]ommands" })
 set("n", "<leader>sb", builtin.buffers,     { desc = "[ ] Find existing buffers" })
 set("n", "<leader>gf", builtin.git_files,   { desc = "Search [G]it [F]iles" })
 set("n", "<leader>sG", live_grep_git_root,  { desc = "[S]earch by [G]rep on Git Root" })
