@@ -19,7 +19,6 @@ return {
       },
       -- Automatically install LSPs to stdpath for neovim
       { "mason-org/mason.nvim", version = "2.x", opts = {} },
-      { "mason-org/mason-lspconfig.nvim", version = "2.x" },
       "WhoIsSethDaniel/mason-tool-installer.nvim",
 
       -- Useful status updates for LSP
