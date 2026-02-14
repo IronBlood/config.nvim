@@ -255,23 +255,14 @@ M.setup = function()
     ensure_installed = ensure_installed,
   })
 
-  local mason_lspconfig = require("mason-lspconfig")
-
-  mason_lspconfig.setup({
-    ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-    automatic_installation = false,
-    handlers = {
-      function(server_name)
-        local server = servers[server_name] or {}
-        server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-        if server_name == "jdtls" then
-          server.capabilities.textDocument.completion.completionItem.snippetSupport = false
-        end
-        vim.lsp.config(server_name, server)
-        vim.lsp.enable(server_name)
-      end,
-    },
-  })
+  for name, server in pairs(servers) do
+    server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+    if name == "jdtls" then
+      server.capabilities.textDocument.completion.completionItem.snippetSupport = false
+    end
+    vim.lsp.config(name, server)
+    vim.lsp.enable(name)
+  end
 
   require("config.luasnip")
   require("snippets")
