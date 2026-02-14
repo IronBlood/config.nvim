@@ -129,6 +129,15 @@ M.setup = function()
     jump = { float = true },
   })
 
+  local vue_language_server_path = vim.fn.stdpath("data")
+    .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
+  local vue_plugin = {
+    name = "@vue/typescript-plugin",
+    location = vue_language_server_path,
+    languages = { "vue" },
+    configNamespace = "typescript",
+  }
+
   -- Enable the following language servers
   --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
   --
@@ -186,19 +195,22 @@ M.setup = function()
     svelte = {},
     ts_ls = {
       init_options = {
+        plugins = {
+          vue_plugin,
+        },
         preferences = {
           disableSuggestions = true,
         },
       },
-    },
-    vue_ls = {
-      init_options = {
-        vue = {
-          -- TODO https://github.com/vuejs/language-tools/pull/5248
-          hybridMode = false,
-        },
+      filetypes = {
+        "typescript",
+        "javascript",
+        "javascriptreact",
+        "typescriptreact",
+        "vue",
       },
     },
+    vue_ls = {},
     yamlls = {
       settings = {
         schemaStore = {
