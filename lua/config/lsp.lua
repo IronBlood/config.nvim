@@ -257,15 +257,6 @@ M.setup = function()
 
   local mason_lspconfig = require("mason-lspconfig")
 
-  ---Normalize server names across toolchains.
-  ---@param server_name string
-  ---@return string
-  local function update_server_name(server_name)
-    local replacements = {}
-
-    return replacements[server_name] or server_name
-  end
-
   mason_lspconfig.setup({
     ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
     automatic_installation = false,
@@ -276,7 +267,6 @@ M.setup = function()
         if server_name == "jdtls" then
           server.capabilities.textDocument.completion.completionItem.snippetSupport = false
         end
-        server_name = update_server_name(server_name)
         vim.lsp.config(server_name, server)
         vim.lsp.enable(server_name)
       end,
