@@ -15,6 +15,18 @@ local function update_ensure_installed(list, replacement)
   end
 end
 
+---Update the key `old` which is used by Mason to `new` which
+---is used by lsp
+---@param list (string|table)[]
+---@param old string
+---@param new string
+local function update_server_key(list, old, new)
+  if list[old] ~= nil then
+    list[new] = list[old]
+    list[old] = nil
+  end
+end
+
 M.setup = function()
   --  This function gets run when an LSP attaches to a particular buffer.
   --    That is to say, every time a new file is opened that is associated with
@@ -147,13 +159,12 @@ M.setup = function()
   --  If you want to override the default filetypes that your language server will attach to you can
   --  define the property 'filetypes' to the map in question.
   local servers = {
-    bashls = {},
-    cmake = {},
+    ["bash-language-server"] = {},
     clangd = {},
-    eslint = {},
+    ["cmake-language-server"] = {},
     gopls = {},
     jdtls = {},
-    jsonls = {
+    ["json-lsp"] = {
       settings = {
         json = {
           schemas = require("schemastore").json.schemas({
@@ -170,7 +181,7 @@ M.setup = function()
         },
       },
     },
-    lua_ls = {
+    ["lua-language-server"] = {
       settings = {
         Lua = {
           -- This is not official yet
@@ -183,7 +194,7 @@ M.setup = function()
       },
     },
     pyright = {},
-    rust_analyzer = {
+    ["rust-analyzer"] = {
       settings = {
         ["rust-analyzer"] = {
           diagnostics = {
@@ -192,8 +203,8 @@ M.setup = function()
         },
       },
     },
-    svelte = {},
-    ts_ls = {
+    ["svelte-language-server"] = {},
+    ["typescript-language-server"] = {
       init_options = {
         plugins = {
           vue_plugin,
@@ -210,8 +221,8 @@ M.setup = function()
         "vue",
       },
     },
-    vue_ls = {},
-    yamlls = {
+    ["vue-language-server"] = {},
+    ["yaml-language-server"] = {
       settings = {
         schemaStore = {
           enable = false,
@@ -267,6 +278,15 @@ M.setup = function()
     ensure_installed = ensure_installed,
   })
 
+  update_server_key(servers, "bash-language-server", "bashls")
+  update_server_key(servers, "cmake-language-server", "cmake")
+  update_server_key(servers, "json-lsp", "jsonls")
+  update_server_key(servers, "lua-language-server", "lua_ls")
+  update_server_key(servers, "rust-analyzer", "rust_analyzer")
+  update_server_key(servers, "svelte-language-server", "svelte")
+  update_server_key(servers, "typescript-language-server", "ts_ls")
+  update_server_key(servers, "vue-language-server", "vue_ls")
+  update_server_key(servers, "yaml-language-server", "yamlls")
   for name, server in pairs(servers) do
     server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
     if name == "jdtls" then
