@@ -162,6 +162,7 @@ M.setup = function()
     ["bash-language-server"] = {},
     clangd = {},
     ["cmake-language-server"] = {},
+    ["css-lsp"] = {},
     gopls = {},
     jdtls = {},
     ["json-lsp"] = {
@@ -204,6 +205,7 @@ M.setup = function()
       },
     },
     ["svelte-language-server"] = {},
+    ["tailwindcss-language-server"] = {},
     ["typescript-language-server"] = {
       init_options = {
         plugins = {
@@ -281,10 +283,12 @@ M.setup = function()
 
   update_server_key(servers, "bash-language-server", "bashls")
   update_server_key(servers, "cmake-language-server", "cmake")
+  update_server_key(servers, "css-lsp", "cssls")
   update_server_key(servers, "json-lsp", "jsonls")
   update_server_key(servers, "lua-language-server", "lua_ls")
   update_server_key(servers, "rust-analyzer", "rust_analyzer")
   update_server_key(servers, "svelte-language-server", "svelte")
+  update_server_key(servers, "tailwindcss-language-server", "tailwindcss")
   update_server_key(servers, "typescript-language-server", "ts_ls")
   update_server_key(servers, "vue-language-server", "vue_ls")
   update_server_key(servers, "yaml-language-server", "yamlls")
