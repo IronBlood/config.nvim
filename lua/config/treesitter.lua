@@ -34,7 +34,7 @@ M.setup = function()
       "make",
       "markdown",
       "markdown_inline",
-      "nginx",
+      -- "nginx",
       "query",
       "python",
       "regex",
