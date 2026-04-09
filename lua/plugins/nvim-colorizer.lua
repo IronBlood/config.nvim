@@ -1,6 +1,7 @@
 return {
   {
-    "norcalli/nvim-colorizer.lua",
+    "IronBlood/nvim-colorizer.lua",
+    version = "mine",
     opts = {
       "css",
     },
