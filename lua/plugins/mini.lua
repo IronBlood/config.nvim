@@ -19,6 +19,7 @@ return {
     require("mini.bracketed").setup()
     -- alt/meta + hjkl
     require("mini.move").setup()
+    require("mini.sessions").setup()
     -- Add/delete/replace surroundings (brackets, quotes, etc.)
     --
     -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
