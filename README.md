@@ -59,6 +59,7 @@ Clone into the target folder directly, or create a symlink: `ln -s /path/to/conf
 * [TreeSJ](https://github.com/Wansmer/treesj) - Splitting or joining blocks of code like arrays, hashes, statements, etc.
 * [Vim Fugitive](https://github.com/tpope/vim-fugitive) - A git wrapper
 * [Which Key](https://github.com/folke/which-key.nvim/) - Shows available keybindings.
+* [whisper.nvim](https://github.com/IronBlood/whisper.nvim) - Speech to text
 * [Zen Mode](https://github.com/folke/zen-mode.nvim) - Distraction-free coding
 
 ## Commands
