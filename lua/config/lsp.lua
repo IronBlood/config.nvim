@@ -160,7 +160,18 @@ M.setup = function()
   --  define the property 'filetypes' to the map in question.
   local servers = {
     ["bash-language-server"] = {},
-    clangd = {},
+    clangd = {
+      capabilities = {
+        textDocument = {
+          hover = {
+            contentFormat = {
+              "markdown",
+              "plaintext",
+            },
+          },
+        },
+      },
+    },
     -- ["cmake-language-server"] = {},
     ["css-lsp"] = {},
     gopls = {},
