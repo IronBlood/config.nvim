@@ -92,15 +92,15 @@ M.setup = function()
           group = highlight_augroup,
           callback = vim.lsp.buf.clear_references,
         })
-      end
 
-      vim.api.nvim_create_autocmd("LspDetach", {
-        group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
-        callback = function(event2)
-          vim.lsp.buf.clear_references()
-          vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
-        end,
-      })
+        vim.api.nvim_create_autocmd("LspDetach", {
+          group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
+          callback = function(event2)
+            vim.lsp.buf.clear_references()
+            vim.api.nvim_clear_autocmds({ group = highlight_augroup, buffer = event2.buf })
+          end,
+        })
+      end
 
       -- The following autocommand is used to enable inlay hints in your
       -- code, if the language server you are using supports them
