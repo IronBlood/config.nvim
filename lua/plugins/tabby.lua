@@ -9,6 +9,23 @@ local function get_tab_window_count(tab)
   return count > 1 and "[" .. count .. "]" or ""
 end
 
+--- Keep one rendered window per buffer while preserving the current-window marker.
+--- @param wins TabbyWins
+local function unique_buffer_wins(wins)
+  local representatives = {}
+
+  for _, win in ipairs(wins.wins) do
+    local bufid = win.buf().id
+    if representatives[bufid] == nil or win.is_current() then
+      representatives[bufid] = win.id
+    end
+  end
+
+  return wins.filter(function(win)
+    return representatives[win.buf().id] == win.id
+  end)
+end
+
 return {
   "nanozuki/tabby.nvim",
   version = "v2.8.1",
@@ -47,7 +64,7 @@ return {
 
           line.spacer(),
 
-          line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
+          unique_buffer_wins(line.wins_in_tab(line.api.get_current_tab())).foreach(function(win)
             return {
               line.sep("", theme.win, theme.fill),
               win.is_current() and "" or "",
